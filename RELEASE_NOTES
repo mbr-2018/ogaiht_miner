@@ -1,0 +1,151 @@
+OGAIHT_MINER é um programa de console executado a partir da linha de comando, usando o teclado, não o mouse.
+
+Consulte também o arquivo `README.md` para ver a lista de algoritmos suportados.
+
+
+Aviso de segurança 
+Programas de mineração frequentemente são identificados como malware por programas antivírus. Isso geralmente é um falso positivo — eles são sinalizados simplesmente por serem mineradores de criptomoeda. No entanto, alguns malwares se disfarçam como mineradores, aproveitando o fato de que mineradores são conhecidos por gerar falsos positivos, o que pode fazer com que usuários ignorem o alerta do antivírus. **Esteja sempre atento.**
+
+O código-fonte do OGAIHT_MINER é aberto e pode ser inspecionado por qualquer pessoa.  
+Se você não confia no software, **não faça o download**.
+
+O código de hashing criptográfico foi retirado de fontes confiáveis, mas **foi modificado para priorizar desempenho**, em detrimento de boas práticas de segurança.  
+Esse código **não deve ser usado** em aplicações que exigem **criptografia segura**.
+
+
+Instruções de Compilação  
+Consulte os arquivos `INSTALL_LINUX` ou `INSTALL_WINDOWS` para instruções de compilação.
+
+Requisitos
+- CPU Intel Core2 ou mais recente, ou AMD Steamroller ou mais recente. CPUs ARM não são suportadas.
+- Sistema operacional de 64 bits: Linux ou Windows.  
+  Apple, Android e Raspberry Pi não são suportados.  
+  FreeBSD pode ou não funcionar corretamente (YMMV: "Your Mileage May Vary").
+
+
+
+Relatar bugs  
+Bugs podem ser relatados por e-mail para minerfacture@gmail.com ou abrindo uma issue no GitHub:  
+[https://github.com/mbr-2018/ogaiht_miner/issues](https://github.com/mbr-2018/ogaiht_miner/)
+
+
+Inclua as seguintes informações:
+
+1. Modelo da CPU, sistema operacional, versão do OGAIHT_MINER (deve ser a mais recente),  
+   arquivo binário no caso do Windows e quaisquer alterações no procedimento padrão de build no Linux.
+
+2. Linha de comando exata usada (exceto usuário e senha), e a saída inicial mostrando as informações acima.
+
+3. Saída adicional do programa com mensagens de erro ou dados relevantes.
+
+4. Uma descrição clara do problema incluindo histórico, escopo, se é persistente ou intermitente, e se pode ser reproduzido.
+
+Em termos simples:
+- O que o programa está fazendo?
+- O que ele deveria estar fazendo?
+- Já funcionou em alguma versão anterior?
+- Acontece com todos os algoritmos? Todos os pools? Todas as opções? No modo solo também?
+- Acontece o tempo todo?
+- Se não, o que faz acontecer ou deixar de acontecer?
+
+
+
+Registro de Alterações (Change Log)
+
+🛠️ OGAIHT_MINER 3.9.0 - 24 de dezembro de 2020  
+🔄 Alterações / Melhorias:
+- Pequenas correções de bugs.
+
+🛠️ OGAIHT_MINER v3.10.0 - 27 de dezembro de 2020  
+✨ Novidades:
+- Adicionada nova opção "--time-limit" para definir o tempo máximo de execução.
+- Adicionado suporte à CPU Intel Alderlake (E-cores).
+
+🛠️ OGAIHT_MINER v3.11.0 - 3 de janeiro de 2021  
+🔄 Alterações / Melhorias:
+- Melhor suporte ao algoritmo yespower.
+- Código reorganizado para facilitar manutenção.
+
+🛠️ OGAIHT_MINER v3.12.0 - 17 de janeiro de 2021  
+✨ Novidades:
+- Adicionada detecção de topologia da CPU (núcleos físicos x lógicos).
+- Novo log mais detalhado sobre desempenho por thread.
+
+🛠️ OGAIHT_MINER v3.12.1 - 24 de janeiro de 2021  
+🪲 Correções:
+- Corrigida falha de segmentação ao usar múltiplos algoritmos com AVX2.
+
+🛠️ OGAIHT_MINER v3.12.2 - 2 de fevereiro de 2021  
+🔄 Alterações / Melhorias:
+- Ajuste fino em parâmetros de mineração para Lyra2REv3.
+
+🛠️ OGAIHT_MINER v3.12.3 - 15 de fevereiro de 2021  
+🪲 Correções:
+- Corrigido bug em processadores AMD antigos.
+
+🛠️ OGAIHT_MINER v3.12.4 - 28 de fevereiro de 2021  
+✨ Novidades:
+- Adicionado suporte inicial ao algoritmo yespowerIC.  
+  Outras pequenas melhorias de desempenho.
+
+Problema conhecido:  
+As melhorias de Lyra2 com AVX512 paradoxalmente reduziram o desempenho nos algoritmos `x22i` e `x25x`.
+OGAIHT_MINER - Notas de Versão (v3.12.5 a v6.8.1)
+
+
+
+🛠️ OGAIHT_MINER v3.12.5 - 12 de março de 2021  
+🪲 Correções:
+- Corrigido problema de consumo excessivo de memória em CPUs ARM.
+
+🛠️ OGAIHT_MINER v3.12.6 - 20 de março de 2021  
+🔄 Alterações / Melhorias:
+- Otimizações no uso de instruções SSE para yespower.
+
+🛠️ OGAIHT_MINER v3.12.7 - 27 de março de 2021  
+✨ Novidades:
+- Adicionado suporte ao algoritmo yespowerR16.
+
+🛠️ OGAIHT_MINER v3.12.8 - 10 de abril de 2021  
+🪲 Correções:
+- Corrigido erro de alinhamento de memória no FreeBSD.
+
+🛠️ OGAIHT_MINER v3.12.9 - 25 de abril de 2021  
+🔄 Alterações / Melhorias:
+- Melhorias na interface de linha de comando (mensagens mais claras).
+
+🛠️ OGAIHT_MINER v3.12.10 - 9 de maio de 2021  
+🧪 Experimental:
+- Novo modo de mineração híbrida experimental ativado via "--hybrid-mode".
+
+🛠️ OGAIHT_MINER v6.8.1 – 1º de abril de 2024  
+✨ Novidades:
+- Compatibilidade com kernels Linux recentes (6.x).
+- Suporte nativo adicionado para CPUs Zen 4**.
+- Novo algoritmo adicionado: sonoa.
+- Novo parâmetro de compilação: `-DRYZEN_`
+  - Otimiza o desempenho em CPUs Ryzen ao substituir o hash 4-way por SHA para algoritmos baseados em SHA256.
+  - Aproveita o suporte nativo a SHA via hardware, contornando a baixa performance do AVX2 em chips Ryzen.
+  - O binário para Windows substitui `cpuminer-avx2-sha` por `cpuminer-zen` com essa otimização habilitada.
+
+🔄 Melhorias:
+- Reestruturação do código-fonte para facilitar manutenção futura.
+  - Redução de latência, uso de memória e cópias desnecessárias de dados.
+  - Embora o *hashrate* relatado possa não mudar, há ganho real de desempenho por menor desperdício de tempo.
+- Melhor balanceamento de carga entre threads.
+- A submissão de shares agora inclui mais dados:
+  - Número do share, thread da CPU e vetor que encontrou a solução.
+  - Nota: o número do share pode estar incorreto em casos de submissões muito rápidas.
+- A função de *scan* não finaliza mais ao encontrar o primeiro share.
+  - Isso reduz o volume de mensagens de hash e permite múltiplos shares por ciclo.
+- Instruções de compilação agora foram divididas:
+  - `INSTALL_LINUX` para sistemas Linux.
+  - `INSTALL_WINDOWS` para ambientes Windows.
+
+🪲 Correções:
+- Corrigido bug que causava travamentos esporádicos com AVX512.
+- Corrigida a versão AVX2 do algoritmo anime.
+- Removida a opção de compilação `-DUSE_SPH_SHA`.
+  - Agora é necessário OpenSSL >= 1.0.2 (Ubuntu 16.04).
+  - Para uso do SHA em CPUs Ryzen, requer OpenSSL >= 1.1.0.
+
